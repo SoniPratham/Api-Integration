@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: Api-Integration
+  datasource:
+    name: api_integration_db
+    url: jdbc:postgresql://localhost:5432/api_integration_db
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+server:
+  port: 8080
+  servlet:
+    context-path: /api-integration
