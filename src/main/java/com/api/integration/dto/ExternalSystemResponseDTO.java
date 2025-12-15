@@ -1,5 +1,7 @@
 package com.api.integration.dto;
 
+import java.io.Serializable;
+
 import lombok.Data;
 
 /**
@@ -7,7 +9,11 @@ import lombok.Data;
  * @date    : Dec 14, 2025
  */
 @Data
-public class ExternalSystemResponseDTO {
+public class ExternalSystemResponseDTO implements Serializable {
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = -6367067305220806464L;
 	private String uuid;
 	private String name;
 	private String baseUrl;

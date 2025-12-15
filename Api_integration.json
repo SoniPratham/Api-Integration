@@ -1,0 +1,146 @@
+{
+  "info": {
+    "name": "API Integration Platform",
+    "_postman_id": "d96f5f72-a88b-47b2-b92e-api-int-platform",
+    "description": "Collection for External System, Endpoint Configuration, Dynamic Field Mapping, Temp User Storage",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "External System",
+      "item": [
+        {
+          "name": "Create External System",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": { "raw": "{{base_url}}/external-system/create", "host": ["{{base_url}}"], "path": ["external-system", "create"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Calendly\",\n  \"baseUrl\": \"https://api.calendly.com\",\n  \"authType\": \"API_KEY\",\n  \"authValue\": \"ABC-123-XYZ\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update External System",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": { "raw": "{{base_url}}/external-system/update", "host": ["{{base_url}}"], "path": ["external-system", "update"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"uuid\": \"<UUID>\",\n  \"name\": \"Calendly Updated\",\n  \"baseUrl\": \"https://api.calendly.com\",\n  \"authType\": \"API_KEY\",\n  \"authValue\": \"NEW-KEY-789\"\n}"
+            }
+          }
+        },
+        {
+          "name": "List External Systems",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": { "raw": "{{base_url}}/external-system/list?pageNumber=0&pageSize=10", "host": ["{{base_url}}"], "path": ["external-system", "list"], "query": [
+              { "key": "pageNumber", "value": "0" },
+              { "key": "pageSize", "value": "10" }
+            ] },
+            "body": { "mode": "raw", "raw": "{ \"name\": \"\" }" }
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Endpoint Configuration",
+      "item": [
+        {
+          "name": "Create Endpoint Config",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": { "raw": "{{base_url}}/endpoint/create", "host": ["{{base_url}}"], "path": ["endpoint", "create"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"externalSystemUuid\": \"<EXT-SYSTEM-UUID>\",\n  \"name\": \"List Users\",\n  \"path\": \"/users\",\n  \"httpMethod\": \"GET\",\n  \"queryParams\": [\n    { \"key\": \"page\", \"required\": false },\n    { \"key\": \"limit\", \"required\": false }\n  ],\n  \"pathParams\": [],\n  \"requestBodyTemplate\": null\n}"
+            }
+          }
+        },
+        {
+          "name": "List Endpoint Configurations",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": { "raw": "{{base_url}}/endpoint/list?pageNumber=0&pageSize=10", "host": ["{{base_url}}"], "path": ["endpoint", "list"], "query": [
+              { "key": "pageNumber", "value": "0" },
+              { "key": "pageSize", "value": "10" }
+            ] },
+            "body": { "mode": "raw", "raw": "{ \"name\": \"\" }" }
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Dynamic Field Mapping",
+      "item": [
+        {
+          "name": "Save/Update Field Mappings",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": { "raw": "{{base_url}}/field-mapping/save-or-update", "host": ["{{base_url}}"], "path": ["field-mapping", "save-or-update"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"endpointUuid\": \"<ENDPOINT-UUID>\",\n  \"mappings\": [\n    {\n      \"externalField\": \"email\",\n      \"internalField\": \"userEmail\",\n      \"dataType\": \"STRING\"\n    },\n    {\n      \"uuid\": \"<MAPPING-UUID>\",\n      \"externalField\": \"first_name\",\n      \"internalField\": \"fname\",\n      \"dataType\": \"STRING\"\n    }\n  ]\n}"
+            }
+          }
+        },
+        {
+          "name": "List Field Mappings",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": { "raw": "{{base_url}}/field-mapping/list?endpointUuid=<ENDPOINT-UUID>", "host": ["{{base_url}}"], "path": ["field-mapping", "list"], "query": [
+              { "key": "endpointUuid", "value": "<ENDPOINT-UUID>" }
+            ] }
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Temp User Storage",
+      "item": [
+        {
+          "name": "List Temp Users",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": { "raw": "{{base_url}}/temp-user/list?pageNumber=0&pageSize=20", "host": ["{{base_url}}"], "path": ["temp-user", "list"], "query": [
+              { "key": "pageNumber", "value": "0" },
+              { "key": "pageSize", "value": "20" }
+            ] },
+            "body": { "mode": "raw", "raw": "{ \"email\": \"\" }" }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:8080" }
+  ]
+}

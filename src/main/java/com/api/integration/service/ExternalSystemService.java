@@ -53,13 +53,6 @@ public interface ExternalSystemService {
 
 	/**
 	 *
-	 * @param  filter
-	 * @return
-	 */
-	Long getCount(ExternalSystemFilterDTO filter);
-
-	/**
-	 *
 	 * @param  uuid
 	 * @param  active
 	 * @throws ValidationException
@@ -67,4 +60,11 @@ public interface ExternalSystemService {
 	 */
 	void changeStatus(String uuid, Boolean active)
 			throws ValidationException, NotFoundException;
+
+	/**
+	 * @param  uuid
+	 * @return
+	 * @throws NotFoundException
+	 */
+	ExternalSystem getExternalSystem(String uuid) throws NotFoundException;
 }

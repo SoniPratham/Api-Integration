@@ -3,6 +3,7 @@ package com.api.integration.specification;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.jpa.domain.Specification;
 
 import com.api.integration.dto.ExternalSystemFilterDTO;
@@ -24,10 +25,10 @@ public class ExternalSystemSpecification {
 
 			List<Predicate> predicates = new ArrayList<>();
 
-			if (filter.getSearchKeyword() != null) {
-				Predicate p1 = cb.like(cb.lower(root.get("name")),
-						"%" + filter.getSearchKeyword().toLowerCase() + "%");
-				predicates.add(cb.or(p1));
+			if (StringUtils.isNotBlank(filter.getSearchKeyword())) {
+				Predicate predicate = cb.like(cb.lower(root.get("name")),
+						"%" + filter.getSearchKeyword().trim().toLowerCase() + "%");
+				predicates.add(cb.or(predicate));
 			}
 
 			if (filter.getActive() != null) {

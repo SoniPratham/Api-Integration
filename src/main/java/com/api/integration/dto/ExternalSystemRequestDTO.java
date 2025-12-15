@@ -1,5 +1,7 @@
 package com.api.integration.dto;
 
+import java.io.Serializable;
+
 import com.api.integration.annotation.EnumValidator;
 import com.api.integration.constant.Constant;
 import com.api.integration.enums.AuthType;
@@ -13,7 +15,12 @@ import lombok.Data;
  * @date    : Dec 14, 2025
  */
 @Data
-public class ExternalSystemRequestDTO {
+public class ExternalSystemRequestDTO implements Serializable {
+
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = -4006422707054476814L;
 
 	private String uuid;
 

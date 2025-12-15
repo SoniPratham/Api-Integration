@@ -89,14 +89,24 @@ public class ExternalSystemServiceImpl implements ExternalSystemService {
 
 		log.info("Inside ExternalSystemServiceImpl::getExternalSystemDetails -> uuid {}", uuid);
 
-		ExternalSystem entity = externalSystemRepository
-				.findByUuid(uuid)
-				.orElseThrow(() -> new NotFoundException(messageByLocaleService.getMessage(
-						"external.system.not.found.uuid", new Object[] { uuid })));
+		ExternalSystem entity = getExternalSystem(uuid);
 
 		log.info("Outside ExternalSystemServiceImpl::getExternalSystemDetails");
 
 		return externalSystemMapper.toResponseDto(entity);
+	}
+
+	/**
+	 * @param  uuid
+	 * @return
+	 * @throws NotFoundException
+	 */
+	@Override
+	public ExternalSystem getExternalSystem(String uuid) throws NotFoundException {
+		return externalSystemRepository
+				.findByUuid(uuid)
+				.orElseThrow(() -> new NotFoundException(messageByLocaleService.getMessage(
+						"external.system.not.found.uuid", new Object[] { uuid })));
 	}
 
 	@Override
@@ -110,19 +120,12 @@ public class ExternalSystemServiceImpl implements ExternalSystemService {
 	}
 
 	@Override
-	public Long getCount(ExternalSystemFilterDTO filter) {
-		return externalSystemRepository.count(ExternalSystemSpecification.getListSpec(filter));
-	}
-
-	@Override
 	public void changeStatus(String uuid, Boolean active)
 			throws ValidationException, NotFoundException {
 
 		log.info("Inside ExternalSystemServiceImpl::changeStatus -> uuid {}, active {}", uuid, active);
 
-		ExternalSystem entity = externalSystemRepository
-				.findByUuid(uuid).orElseThrow(() -> new NotFoundException(messageByLocaleService.getMessage(
-						"external.system.not.found.uuid", new Object[] { uuid })));
+		ExternalSystem entity = getExternalSystem(uuid);
 
 		if (active == null) {
 			throw new ValidationException(messageByLocaleService.getMessage("active.not.null", null));
