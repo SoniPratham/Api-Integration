@@ -1,7 +1,5 @@
 package com.api.integration.service.impl;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
-
 import java.util.List;
 import java.util.Map;
 
@@ -23,9 +21,7 @@ import com.api.integration.entity.ExternalSystem;
 import com.api.integration.entity.UserData;
 import com.api.integration.exception.NotFoundException;
 import com.api.integration.repo.EndpointConfigurationRepository;
-import com.api.integration.repo.EndpointPathParamRepository;
 import com.api.integration.repo.EndpointQueryParamRepository;
-import com.api.integration.repo.ExternalSystemRepository;
 import com.api.integration.service.GenericApiCallerService;
 import com.api.integration.service.ResponseParsingService;
 import com.api.integration.utils.JsonUtils;
@@ -38,10 +34,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class GenericApiCallerServiceImpl implements GenericApiCallerService {
 
-	private final ExternalSystemRepository externalSystemRepository;
 	private final EndpointConfigurationRepository endpointRepository;
 	private final EndpointQueryParamRepository queryParamRepository;
-	private final EndpointPathParamRepository pathParamRepository;
 	private final RestTemplate restTemplate;
 	private final ResponseParsingService responseParsingService;
 
@@ -50,11 +44,9 @@ public class GenericApiCallerServiceImpl implements GenericApiCallerService {
 
 		log.info("Inside GenericApiCallerServiceImpl::execute -> request {}", request);
 
-		ExternalSystem system = externalSystemRepository.findByUuid(request.getExternalSystemUuid())
-				.orElseThrow(() -> new NotFoundException("external.system.not.found"));
-
 		EndpointConfiguration endpoint = endpointRepository.findByUuid(request.getEndpointUuid())
 				.orElseThrow(() -> new NotFoundException("endpoint.not.found"));
+		ExternalSystem system = endpoint.getExternalSystem();
 
 		String finalUrl = buildFinalUrl(system, endpoint, request);
 
@@ -70,7 +62,7 @@ public class GenericApiCallerServiceImpl implements GenericApiCallerService {
 		log.info("API Response: {}", response.getBody());
 
 		// Parse and convert to TempUser list
-		List<UserData> users = responseParsingService.parseAndConvert(JsonUtils.toObject(response.getBody()), endpoint);
+		List<UserData> users = responseParsingService.parseAndConvert(JsonUtils.toObject(response.getBody(), Object.class), endpoint);
 
 		GenericApiResponseDTO resp = new GenericApiResponseDTO();
 		resp.setSuccess(true);

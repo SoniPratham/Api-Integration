@@ -40,5 +40,5 @@ public class EndpointQueryParam extends CommonModel {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "endpoint_config_id")
-	private EndpointConfiguration endpointConfiguration;
+	private EndpointConfiguration endpoint;
 }

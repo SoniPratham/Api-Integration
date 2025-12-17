@@ -14,13 +14,10 @@ public class ApiExecutionRequestDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = 5843178834483019692L;
 
-	@NotBlank(message = "{external.system.uuid.not.null}")
-	private String externalSystemUuid;
-
 	@NotBlank(message = "{endpoint.uuid.not.null}")
 	private String endpointUuid;
 
-	// Optional custom param overrides while triggering sync
+	// Optional custom param overrides while call api
 	private Map<String, String> queryParams;
 	private Map<String, String> pathParams;
 }

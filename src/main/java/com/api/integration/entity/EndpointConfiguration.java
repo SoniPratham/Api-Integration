@@ -44,6 +44,8 @@ public class EndpointConfiguration extends CommonModel {
 	@Enumerated(EnumType.STRING)
 	private HttpMethodType httpMethod;
 
+	private String jsonRootNode;
+
 	@Column(columnDefinition = "TEXT")
 	private String requestBodyTemplate;
 

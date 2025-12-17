@@ -43,6 +43,6 @@ public class ExternalSystem extends CommonModel {
 	@Enumerated(EnumType.STRING)
 	private AuthType authType;
 
-	@Column(nullable = false)
+	@Column(nullable = false, length = 2000)
 	private String authValue;
 }

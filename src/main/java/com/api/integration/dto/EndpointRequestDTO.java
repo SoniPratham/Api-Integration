@@ -30,6 +30,8 @@ public class EndpointRequestDTO implements Serializable {
 	@NotBlank(message = "{endpoint.path.not.null}")
 	private String path;
 
+	private String jsonRootNode;
+
 	@NotBlank(message = "{endpoint.http.method.not.null}")
 	@EnumValidator(enumClass = HttpMethodType.class, message = "{http.method.invalid}")
 	private String httpMethod;

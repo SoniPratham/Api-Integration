@@ -1,0 +1,761 @@
+{
+	"info": {
+		"_postman_id": "f30f3d32-c880-4cd8-9e97-cb6138a391f7",
+		"name": "API Integration Platform",
+		"description": "Collection for External System, Endpoint Configuration, Dynamic Field Mapping, Temp User Storage",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31919577",
+		"_collection_link": "https://soni66.postman.co/workspace/Soni-Workspace~2d2505db-89ec-4f5f-9327-fdf4a81d0c93/collection/31919577-f30f3d32-c880-4cd8-9e97-cb6138a391f7?action=share&source=collection_link&creator=31919577"
+	},
+	"item": [
+		{
+			"name": "External System",
+			"item": [
+				{
+					"name": "Create External System",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Calendly\",\n  \"baseUrl\": \"https://api.calendly.com\",\n  \"authType\": \"API_KEY\",\n  \"authValue\": \"ABC-123-XYZ\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/external/system",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"external",
+								"system"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create External System",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Calendly\",\n  \"baseUrl\": \"https://api.calendly.com\",\n  \"authType\": \"API_KEY\",\n  \"authValue\": \"ABC-123-XYZ\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/external/system",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"external",
+										"system"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 14 Dec 2025 16:45:51 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"External system created successfully.\",\n    \"data\": {\n        \"uuid\": \"SYE9-T9GI-5LI2-UF47\",\n        \"name\": \"Calendly\",\n        \"baseUrl\": \"https://api.calendly.com\",\n        \"authType\": \"API_KEY\",\n        \"active\": true\n    },\n    \"status\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "Update External System",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"uuid\": \"SYE9-T9GI-5LI2-UF47\",\n    \"name\": \"Calendly Updated\",\n    \"baseUrl\": \"https://api.calendly.com\",\n    \"authType\": \"BEARER\",\n    \"authValue\":\"eyJraWQiOiIxY2UxZTEzNjE3ZGNmNzY2YjNjZWJjY2Y4ZGM1YmFmYThhNjVlNjg0MDIzZjdjMzJiZTgzNDliMjM4MDEzNWI0IiwidHlwIjoiUEFUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJodHRwczovL2F1dGguY2FsZW5kbHkuY29tIiwiaWF0IjoxNzY1NzM4ODU0LCJqdGkiOiJiNDhkNzVhMC1mZTdkLTQ3MjAtYjY1ZS1jMzliMWEwZTcwNjciLCJ1c2VyX3V1aWQiOiIzOTYxMjUzMi0yNWUzLTQ0N2UtODM5My00YmRhNTk5ZTgzM2IifQ.Wx3S48we0M13hyZNvmycf8D9lm9_jCogqdiWurLtEXkzKlAyOeI4GczX9gle812Aco_4obLr8SR6xKXZw-ODNg\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/external/system",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"external",
+								"system"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update External System",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"uuid\": \"SYE9-T9GI-5LI2-UF47\",\n    \"name\": \"Calendly Updated\",\n    \"baseUrl\": \"https://api.calendly.com\",\n    \"authType\": \"API_KEY\",\n    \"authValue\": \"NEW-KEY-789\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/external/system",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"external",
+										"system"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 14 Dec 2025 16:46:45 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"External system updated successfully.\",\n    \"status\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "List External Systems",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"searchKeyword\": \"a\",\r\n    \"active\": true\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/external/system/list?pageNumber=1&pageSize=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"external",
+								"system",
+								"list"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List External Systems",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"searchKeyword\": \"a\",\r\n    \"active\": true\r\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/external/system/list?pageNumber=1&pageSize=10",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"external",
+										"system",
+										"list"
+									],
+									"query": [
+										{
+											"key": "pageNumber",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 14 Dec 2025 16:49:28 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"uuid\": \"SYE9-T9GI-5LI2-UF47\",\n            \"name\": \"Calendly Updated\",\n            \"baseUrl\": \"https://api.calendly.com\",\n            \"authType\": \"API_KEY\",\n            \"active\": true\n        }\n    ],\n    \"hasNextPage\": false,\n    \"totalPages\": 1,\n    \"hasPreviousPage\": false,\n    \"pageSize\": 10,\n    \"message\": \"External system list fetched successfully.\",\n    \"totalCount\": 1,\n    \"status\": 200\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Endpoint Configuration",
+			"item": [
+				{
+					"name": "Create Endpoint Config",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"externalSystemUuid\": \"SYE9-T9GI-5LI2-UF47\",\n  \"endpointName\": \"List Users\",\n  \"path\": \"/organization_memberships\",\n  \"httpMethod\": \"GET\",\n  \"queryParams\": [\n    { \"key\": \"organization\", \"valueTemplate\": false }\n  ],\n  \"pathParams\": [],\n  \"requestBodyTemplate\": null\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/endpoint/config",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"endpoint",
+								"config"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Endpoint Config",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"externalSystemUuid\": \"SYE9-T9GI-5LI2-UF47\",\n  \"endpointName\": \"List Users\",\n  \"path\": \"/organization_memberships\",\n  \"httpMethod\": \"GET\",\n  \"queryParams\": [\n    { \"key\": \"organization\", \"valueTemplate\": false }\n  ],\n  \"pathParams\": [],\n  \"requestBodyTemplate\": null\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/endpoint/config",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"endpoint",
+										"config"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 17 Dec 2025 04:13:47 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"endpoint.add.message\",\n    \"data\": {\n        \"uuid\": \"QAL6-N51V-CZ32-QUKJ\",\n        \"endpointName\": \"List Users\",\n        \"path\": \"/organization_memberships\",\n        \"jsonRootNode\": null,\n        \"httpMethod\": \"GET\",\n        \"requestBodyTemplate\": null,\n        \"externalSystemUuid\": \"SYE9-T9GI-5LI2-UF47\"\n    },\n    \"status\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "List Endpoint Configurations",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"name\": \"\" }"
+						},
+						"url": {
+							"raw": "{{base_url}}/endpoint/config/list?pageNumber=1&pageSize=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"endpoint",
+								"config",
+								"list"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List Endpoint Configurations",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \"name\": \"\" }"
+								},
+								"url": {
+									"raw": "{{base_url}}/endpoint/config/list?pageNumber=1&pageSize=10",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"endpoint",
+										"config",
+										"list"
+									],
+									"query": [
+										{
+											"key": "pageNumber",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 17 Dec 2025 04:20:30 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"uuid\": \"QAL6-N51V-CZ32-QUKJ\",\n            \"endpointName\": \"List Users\",\n            \"path\": \"/organization_memberships\",\n            \"jsonRootNode\": \"collection\",\n            \"httpMethod\": \"GET\",\n            \"requestBodyTemplate\": null,\n            \"externalSystemUuid\": \"SYE9-T9GI-5LI2-UF47\"\n        },\n        {\n            \"uuid\": \"G3FG-F0AY-S1NR-CQ0J\",\n            \"endpointName\": \"List Users\",\n            \"path\": \"/users/me\",\n            \"jsonRootNode\": \"resource\",\n            \"httpMethod\": \"GET\",\n            \"requestBodyTemplate\": null,\n            \"externalSystemUuid\": \"SYE9-T9GI-5LI2-UF47\"\n        }\n    ],\n    \"hasNextPage\": false,\n    \"totalPages\": 1,\n    \"hasPreviousPage\": false,\n    \"pageSize\": 10,\n    \"message\": \"endpoint.list.message\",\n    \"totalCount\": 2,\n    \"status\": 200\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Dynamic Field Mapping",
+			"item": [
+				{
+					"name": "Save/Update Field Mappings",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"endpointUuid\": \"QAL6-N51V-CZ32-QUKJ\",\n  \"mappings\": [\n    {\n      \"externalField\": \"/user/email\",\n      \"internalField\": \"email\",\n      \"dataType\": \"STRING\"\n    },\n    {\n      \"externalField\": \"/user/name\",\n      \"internalField\": \"name\",\n      \"dataType\": \"STRING\"\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/dynamic-field-mapping/save",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"dynamic-field-mapping",
+								"save"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Save/Update Field Mappings",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"endpointUuid\": \"G3FG-F0AY-S1NR-CQ0J\",\n  \"mappings\": [\n    {\n      \"externalField\": \"email\",\n      \"internalField\": \"userEmail\",\n      \"dataType\": \"STRING\"\n    },\n    {\n      \"externalField\": \"first_name\",\n      \"internalField\": \"fname\",\n      \"dataType\": \"STRING\"\n    }\n  ]\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/dynamic-field-mapping/save",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"dynamic-field-mapping",
+										"save"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 17 Dec 2025 03:15:59 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"dynamic.field.mapping.save.message\",\n    \"status\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "List Field Mappings",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/dynamic-field-mapping/list/G3FG-F0AY-S1NR-CQ0J",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"dynamic-field-mapping",
+								"list",
+								"G3FG-F0AY-S1NR-CQ0J"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List Field Mappings",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/dynamic-field-mapping/list/G3FG-F0AY-S1NR-CQ0J",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"dynamic-field-mapping",
+										"list",
+										"G3FG-F0AY-S1NR-CQ0J"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 17 Dec 2025 03:15:46 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Dynamic field mapping list fetched successfully.\",\n    \"data\": [\n        {\n            \"uuid\": \"DOPK-07ZY-TV18-MWP3\",\n            \"externalField\": \"first_name\",\n            \"internalField\": \"fname\",\n            \"dataType\": \"STRING\",\n            \"endpointUuid\": \"G3FG-F0AY-S1NR-CQ0J\"\n        }\n    ],\n    \"status\": 200\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Temp User Storage",
+			"item": [
+				{
+					"name": "List Temp Users",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"email\": \"\" }"
+						},
+						"url": {
+							"raw": "{{base_url}}/temp-user/list?pageNumber=0&pageSize=20",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"temp-user",
+								"list"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Generic API Caller",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"endpointUuid\":\"QAL6-N51V-CZ32-QUKJ\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/generic-api/call",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"generic-api",
+						"call"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Final organization user List fetching",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"endpointUuid\":\"QAL6-N51V-CZ32-QUKJ\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/generic-api/call",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"generic-api",
+								"call"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 17 Dec 2025 04:19:55 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"generic.api.call.success\",\n    \"data\": {\n        \"success\": true,\n        \"rawResponse\": [\n            {\n                \"active\": true,\n                \"createdAt\": \"2025-12-17T09:49:55.57649\",\n                \"updatedAt\": \"2025-12-17T09:49:55.57649\",\n                \"id\": 2,\n                \"uuid\": \"K8OK-C6WZ-9WOR-HFF0\",\n                \"name\": \"D21IT173 Soni Pratham Kaushik\",\n                \"email\": null,\n                \"phone\": null,\n                \"calendlyUserId\": null,\n                \"rawJson\": null\n            },\n            {\n                \"active\": true,\n                \"createdAt\": \"2025-12-17T09:49:55.583473\",\n                \"updatedAt\": \"2025-12-17T09:49:55.583473\",\n                \"id\": 3,\n                \"uuid\": \"M3QK-AR8J-U3PB-KBC0\",\n                \"name\": \"Soni 111\",\n                \"email\": null,\n                \"phone\": null,\n                \"calendlyUserId\": null,\n                \"rawJson\": null\n            }\n        ]\n    },\n    \"status\": 200\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080"
+		}
+	]
+}

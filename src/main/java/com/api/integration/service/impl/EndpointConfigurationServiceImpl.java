@@ -95,7 +95,7 @@ public class EndpointConfigurationServiceImpl implements EndpointConfigurationSe
 				param.setUuid(CommonUtility.generateUuid(queryParamRepository));
 				param.setActive(Boolean.TRUE);
 				param.setValueTemplate(p.getValueTemplate());
-				param.setEndpointConfiguration(endpoint);
+				param.setEndpoint(endpoint);
 				queryParamRepository.save(param);
 			});
 		}

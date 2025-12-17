@@ -17,6 +17,7 @@ public class EndpointResponseDTO implements Serializable {
 	private String uuid;
 	private String endpointName;
 	private String path;
+	private String jsonRootNode;
 	private String httpMethod;
 	private String requestBodyTemplate;
 	private String externalSystemUuid;

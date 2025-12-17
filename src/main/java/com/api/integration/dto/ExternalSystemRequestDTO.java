@@ -37,7 +37,6 @@ public class ExternalSystemRequestDTO implements Serializable {
 	private String authType;
 
 	@NotBlank(message = "{external.system.auth.value.not.null}")
-	@Size(max = 255, message = Constant.FIELD_SIZE_EXCEED_MESSAGE_255)
 	private String authValue;
 
 }
